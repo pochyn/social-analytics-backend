@@ -5,7 +5,7 @@ resource "aws_security_group" "ecs_tasks" {
     protocol    = "tcp"
     from_port   = 4000
     to_port     = 4000
-    cidr_blocks = ["0.0.0.0/0"]
+    cidr_blocks = ["172.31.0.0/16"]
   }
   egress {
     protocol    = "-1"
@@ -22,7 +22,7 @@ resource "aws_security_group" "alb" {
     protocol    = "tcp"
     from_port   = 443
     to_port     = 443
-    cidr_blocks = ["0.0.0.0/0"]
+    cidr_blocks = ["172.31.0.0/16"]
   }
   ingress {
     protocol    = "tcp"
