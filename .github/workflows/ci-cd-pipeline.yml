@@ -50,7 +50,7 @@ jobs:
     steps:
       - name: Check Out
         id: check_out
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
       - name: Configure AWS Credentials
         id: configure
         uses: aws-actions/configure-aws-credentials@v1
