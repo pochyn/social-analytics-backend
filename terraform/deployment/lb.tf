@@ -8,7 +8,7 @@ resource "aws_lb" "current" {
 
 resource "aws_alb_listener" "http" {
   load_balancer_arn = aws_lb.current.id
-  port              = 4000
+  port              = 80
   protocol          = "HTTP"
 
   default_action {
