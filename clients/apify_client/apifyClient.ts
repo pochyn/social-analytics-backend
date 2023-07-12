@@ -21,7 +21,7 @@ export const hashtagAnalytics = (async (hashtags: string[]) => {
         }
     };
     // Run the Actor and wait for it to finish
-    const run = await client.task("jafarlie~tiktok-scraper").call(input);
+    const run = await client.task("viralhub~tiktok-scrapper").call(input);
 
     // Fetch and print actor results from the run's dataset (if any)
     const { items } = await client.dataset(run.defaultDatasetId).listItems();
