@@ -5,7 +5,7 @@ import { getHashtagAnalytics } from "./getHashtagAnalytics";
 const router = express.Router();
 
 // Using routes
-router.get("/profile", getUserProfile);
-router.get("/hashtags", getHashtagAnalytics);
+router.post("/profile", getUserProfile);
+router.post("/hashtags", getHashtagAnalytics);
 
 export default router;
