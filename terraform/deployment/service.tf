@@ -9,16 +9,15 @@ resource "aws_ecs_task_definition" "service_task_fargate" {
   container_definitions = jsonencode([{
     name  = var.service_name
     image = "${var.account_id}.dkr.ecr.us-east-1.amazonaws.com/social-analytics-backend:${var.image_tag}"
-    logConfiguration = {
-      # logDriver = "awslogs",
-      logDriver = "none",
-      # options = {
-      #   awslogs-group         = "/aws/ecs/${var.service_name}"
-      #   awslogs-region        = "us-east-1"
-      #   awslogs-create-group  = "true"
-      #   awslogs-stream-prefix = var.service_name
-      # }
-    }
+    # logConfiguration = {
+    # logDriver = "awslogs",
+    # options = {
+    #   awslogs-group         = "/aws/ecs/${var.service_name}"
+    #   awslogs-region        = "us-east-1"
+    #   awslogs-create-group  = "true"
+    #   awslogs-stream-prefix = var.service_name
+    # }
+    # }
     portMappings = [{
       protocol      = "tcp"
       containerPort = 4000
