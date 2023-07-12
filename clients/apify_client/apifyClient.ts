@@ -42,11 +42,15 @@ export const getUserProfileAnalytics = async (profiles: string[]) => {
       useApifyProxy: true,
     },
   };
+
+  console.log("input", input);
   // Run the Actor and wait for it to finish
   const run = await client.task("jafarlie~tiktok-scraper").call(input);
+  console.log("run", run);
 
   // Fetch and print actor results from the run's dataset (if any)
   const { items } = await client.dataset(run.defaultDatasetId).listItems();
+  console.log("items", items);
   // items.forEach((item) => {
   //     console.dir(item);
   // });
