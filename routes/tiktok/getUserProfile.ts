@@ -1,4 +1,5 @@
 import { NextFunction, Request, Response } from "express";
+import { getUserProfileAnalytics } from "../../clients/apify_client/apifyClient";
 
 export const getUserProfile = async (
   req: Request,
@@ -6,7 +7,8 @@ export const getUserProfile = async (
   next: NextFunction
 ) => {
   try {
-    return res.status(200).send("hi there");
+    const response = await getUserProfileAnalytics(req.body.userProfiles);
+    return res.status(200).send(response);
   } catch (error) {
     return res.status(400).send(`Error getting profile`);
   }
