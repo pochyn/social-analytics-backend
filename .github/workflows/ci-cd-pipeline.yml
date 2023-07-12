@@ -59,7 +59,7 @@ jobs:
           aws-region: ${{ env.AWS_REGION }}
       - name: Create .env file from GitHub secret
         run: |
-          echo "${{ secrets.PROD_DASHBOARD_ENV_FILE }}" > .env
+          echo "${{ secrets.PROD_BACKEND_ENV_FILE }}" > .env
       - name: Image build and push
         id: docker-build
         run: |
