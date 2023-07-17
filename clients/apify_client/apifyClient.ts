@@ -44,7 +44,7 @@ export const getUserProfileAnalytics = (async (profiles: string[]) => {
         }
     };
     // Run the Actor and wait for it to finish
-    const run = await client.task("jafarlie~tiktok-scraper").call(input);
+    const run = await client.task("viralhub~tiktok-scrapper").call(input);
 
     // Fetch and print actor results from the run's dataset (if any)
     console.log('Results from dataset');
