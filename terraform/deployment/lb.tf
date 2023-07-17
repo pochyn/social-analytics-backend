@@ -8,7 +8,7 @@ resource "aws_lb" "current" {
 
 resource "aws_alb_listener" "http" {
   load_balancer_arn = aws_lb.current.id
-  port              = 4000
+  port              = 80
   protocol          = "HTTP"
 
   default_action {
@@ -29,7 +29,7 @@ resource "aws_alb_target_group" "target_group" {
     protocol            = "HTTP"
     matcher             = "200"
     timeout             = "3"
-    path                = "/"
+    path                = "/up"
     unhealthy_threshold = "2"
   }
 }
