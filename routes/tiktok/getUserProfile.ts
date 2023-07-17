@@ -8,9 +8,10 @@ export const getUserProfile = async (
   next: NextFunction
 ) => {
   try {
-    const response = await getUserProfileAnalytics(req.body.userProfiles);
+    const response = await getUserProfileAnalytics(req.body.profiles);
     return res.status(200).send(response);
   } catch (error) {
+    console.error(error);
     return res.status(400).send(`Error getting profile, ${error}`);
   }
 };
