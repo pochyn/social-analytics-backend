@@ -42,26 +42,13 @@ export const getUserProfileAnalytics = async (profiles: string[]) => {
       useApifyProxy: true,
     },
   };
+  // Run the Actor and wait for it to finish
+  const run = await client.task("viralhub~tiktok-scrapper").call(input);
 
-export const getUserProfileAnalytics = (async (profiles: string[]) => {
-    // do we need checks in place for hashtags for formatting?
-    const input = {
-        "profiles": profiles,
-        "resultsPerPage": 5,
-        "scrapeEmptyChannelInfo": false,
-        "shouldDownloadVideos": false,
-        "shouldDownloadCovers": false,
-        "proxyConfiguration": {
-            "useApifyProxy": true
-        }
-    };
-    // Run the Actor and wait for it to finish
-    const run = await client.task("viralhub~tiktok-scrapper").call(input);
-
-    // Fetch and print actor results from the run's dataset (if any)
-    const { items } = await client.dataset(run.defaultDatasetId).listItems();
-    // items.forEach((item) => {
-    //     console.dir(item);
-    // });
-    return items;
+  // Fetch and print actor results from the run's dataset (if any)
+  const { items } = await client.dataset(run.defaultDatasetId).listItems();
+  // items.forEach((item) => {
+  //     console.dir(item);
+  // });
+  return items;
 };
